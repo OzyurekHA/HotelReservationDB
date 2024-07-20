@@ -14,3 +14,4 @@ namespace HotelReservation.Entity.Abstract
         public bool IsDeleted { get; set; }
     }
 }
+    

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HotelReservation.Business.Services
 {
-    public class BookingService : IManager<Booking>
+    public class BookingService : IBookingService
     {
         private readonly BookingRepository _bookingRepository;
 

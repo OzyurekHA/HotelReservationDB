@@ -14,5 +14,6 @@ namespace HotelReservation.DataAccess.Abstact
         void Delete(T entity);
         List<T> GetAll(Expression<Func<T,bool>> filter = null);
         T Get(Expression<Func<T,bool>> filter);
+        bool IfEntityExists(Expression<Func<T,bool>> filter);
     }
 }

@@ -42,6 +42,9 @@
             label6 = new Label();
             label7 = new Label();
             btnKaydet = new Button();
+            lstMisafir = new ListBox();
+            label8 = new Label();
+            btnSil = new Button();
             SuspendLayout();
             // 
             // txtName
@@ -154,19 +157,50 @@
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(314, 286);
+            btnKaydet.Location = new Point(276, 280);
             btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(94, 29);
+            btnKaydet.Size = new Size(132, 29);
             btnKaydet.TabIndex = 6;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = true;
             btnKaydet.Click += button1_Click;
             // 
+            // lstMisafir
+            // 
+            lstMisafir.FormattingEnabled = true;
+            lstMisafir.Location = new Point(474, 70);
+            lstMisafir.Name = "lstMisafir";
+            lstMisafir.Size = new Size(288, 204);
+            lstMisafir.TabIndex = 7;
+            lstMisafir.SelectedIndexChanged += lstMisafir_SelectedIndexChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(474, 47);
+            label8.Name = "label8";
+            label8.Size = new Size(116, 20);
+            label8.TabIndex = 8;
+            label8.Text = "Kayıtlı Misafirler";
+            // 
+            // btnSil
+            // 
+            btnSil.Location = new Point(639, 280);
+            btnSil.Name = "btnSil";
+            btnSil.Size = new Size(123, 29);
+            btnSil.TabIndex = 9;
+            btnSil.Text = "Listeden Çıkar";
+            btnSil.UseVisualStyleBackColor = true;
+            btnSil.Click += btnSil_Click;
+            // 
             // Frm_Guest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(452, 348);
+            ClientSize = new Size(792, 348);
+            Controls.Add(btnSil);
+            Controls.Add(label8);
+            Controls.Add(lstMisafir);
             Controls.Add(btnKaydet);
             Controls.Add(label7);
             Controls.Add(dtpBirthDate);
@@ -183,6 +217,7 @@
             Controls.Add(txtName);
             Name = "Frm_Guest";
             Text = "Frm_Guest";
+            Load += Frm_Guest_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,5 +238,8 @@
         private Label label6;
         private Label label7;
         private Button btnKaydet;
+        private ListBox lstMisafir;
+        private Label label8;
+        private Button btnSil;
     }
 }

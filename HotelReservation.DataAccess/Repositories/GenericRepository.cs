@@ -47,6 +47,11 @@ namespace HotelReservation.DataAccess.Repositories
             return filter == null ? _dbSet.ToList() : _dbSet.Where(filter).ToList();
         }
 
+        public bool IfEntityExists(Expression<Func<T, bool>> filter)
+        {
+            return _dbSet.Any(filter);
+        }
+
         public void Update(T entity)
         {
             entity.UpdateAt = DateTime.Now;

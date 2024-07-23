@@ -149,7 +149,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Gold;
             label7.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label7.Location = new Point(86, 23);
+            label7.Location = new Point(41, 23);
             label7.Name = "label7";
             label7.Size = new Size(263, 31);
             label7.TabIndex = 3;
@@ -177,9 +177,11 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(474, 47);
+            label8.BackColor = Color.LimeGreen;
+            label8.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label8.Location = new Point(474, 23);
             label8.Name = "label8";
-            label8.Size = new Size(116, 20);
+            label8.Size = new Size(183, 31);
             label8.TabIndex = 8;
             label8.Text = "Kayıtlı Misafirler";
             // 

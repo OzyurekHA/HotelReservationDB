@@ -20,7 +20,7 @@ namespace HotelReservation.Business.Services
 
         public List<RoomType> GetAll()
         {
-            return _roomTypeRepository.GetAll();
+            return _roomTypeRepository.GetAll(x => x.IsDeleted == false);
         }
 
         public RoomType GetById(string id)

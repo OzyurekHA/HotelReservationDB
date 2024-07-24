@@ -37,17 +37,17 @@
             txtPrice = new TextBox();
             label5 = new Label();
             nudCapacity = new NumericUpDown();
-            listBox1 = new ListBox();
+            lstRoomType = new ListBox();
             label6 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnAdd = new Button();
+            btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)nudCapacity).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 97);
+            label1.Location = new Point(41, 73);
             label1.Name = "label1";
             label1.Size = new Size(66, 20);
             label1.TabIndex = 0;
@@ -55,15 +55,15 @@
             // 
             // txtTypeName
             // 
-            txtTypeName.Location = new Point(162, 94);
+            txtTypeName.Location = new Point(158, 70);
             txtTypeName.Name = "txtTypeName";
-            txtTypeName.Size = new Size(213, 27);
-            txtTypeName.TabIndex = 1;
+            txtTypeName.Size = new Size(250, 27);
+            txtTypeName.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(33, 130);
+            label2.Location = new Point(41, 106);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
             label2.TabIndex = 0;
@@ -72,7 +72,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(33, 211);
+            label3.Location = new Point(41, 217);
             label3.Name = "label3";
             label3.Size = new Size(66, 20);
             label3.TabIndex = 0;
@@ -80,16 +80,16 @@
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(162, 127);
+            txtDescription.Location = new Point(158, 103);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(213, 76);
+            txtDescription.Size = new Size(250, 106);
             txtDescription.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(33, 244);
+            label4.Location = new Point(41, 250);
             label4.Name = "label4";
             label4.Size = new Size(92, 20);
             label4.TabIndex = 0;
@@ -97,17 +97,17 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(162, 241);
+            txtPrice.Location = new Point(158, 247);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(213, 27);
-            txtPrice.TabIndex = 1;
+            txtPrice.Size = new Size(250, 27);
+            txtPrice.TabIndex = 3;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Gold;
             label5.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label5.Location = new Point(33, 49);
+            label5.Location = new Point(41, 23);
             label5.Name = "label5";
             label5.Size = new Size(262, 31);
             label5.TabIndex = 0;
@@ -115,59 +115,62 @@
             // 
             // nudCapacity
             // 
-            nudCapacity.Location = new Point(162, 209);
+            nudCapacity.Location = new Point(158, 215);
             nudCapacity.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             nudCapacity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudCapacity.Name = "nudCapacity";
-            nudCapacity.Size = new Size(213, 27);
+            nudCapacity.Size = new Size(250, 27);
             nudCapacity.TabIndex = 2;
             nudCapacity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // listBox1
+            // lstRoomType
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(474, 70);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(288, 204);
-            listBox1.TabIndex = 3;
+            lstRoomType.FormattingEnabled = true;
+            lstRoomType.Location = new Point(474, 70);
+            lstRoomType.Name = "lstRoomType";
+            lstRoomType.Size = new Size(288, 204);
+            lstRoomType.TabIndex = 5;
+            lstRoomType.SelectedIndexChanged += lstRoomType_SelectedIndexChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.LimeGreen;
             label6.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label6.Location = new Point(474, 36);
+            label6.Location = new Point(474, 23);
             label6.Name = "label6";
             label6.Size = new Size(129, 31);
             label6.TabIndex = 0;
             label6.Text = "Oda Tipleri";
             // 
-            // button1
+            // btnAdd
             // 
-            button1.Location = new Point(239, 284);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 29);
-            button1.TabIndex = 4;
-            button1.Text = "Ekle";
-            button1.UseVisualStyleBackColor = true;
+            btnAdd.Location = new Point(285, 280);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(123, 29);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "Ekle";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += button1_Click;
             // 
-            // button2
+            // btnDelete
             // 
-            button2.Location = new Point(518, 284);
-            button2.Name = "button2";
-            button2.Size = new Size(136, 29);
-            button2.TabIndex = 4;
-            button2.Text = "Sil";
-            button2.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(639, 280);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(123, 29);
+            btnDelete.TabIndex = 6;
+            btnDelete.Text = "Sil";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Frm_RoomType
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(792, 348);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(listBox1);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAdd);
+            Controls.Add(lstRoomType);
             Controls.Add(nudCapacity);
             Controls.Add(txtPrice);
             Controls.Add(label4);
@@ -180,6 +183,7 @@
             Controls.Add(label1);
             Name = "Frm_RoomType";
             Text = "Frm_RoomType";
+            Load += Frm_RoomType_Load;
             ((System.ComponentModel.ISupportInitialize)nudCapacity).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -196,9 +200,9 @@
         private TextBox txtPrice;
         private Label label5;
         private NumericUpDown nudCapacity;
-        private ListBox listBox1;
+        private ListBox lstRoomType;
         private Label label6;
-        private Button button1;
-        private Button button2;
+        private Button btnAdd;
+        private Button btnDelete;
     }
 }

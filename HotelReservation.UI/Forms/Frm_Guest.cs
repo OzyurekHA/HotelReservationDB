@@ -75,7 +75,7 @@ namespace HotelReservation.UI.Forms
             lstMisafir.DataSource = null;
             lstMisafir.Items.Clear();
             lstMisafir.ValueMember = "Id";
-            lstMisafir.DisplayMember = "FullName"; //!!!Buraya ad ve soyad yazdıracaksın bir şekilde!!!
+            lstMisafir.DisplayMember = "FullName";
             lstMisafir.DataSource = _guestService.GetAll();
         }
 

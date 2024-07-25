@@ -14,9 +14,13 @@ namespace HotelReservation.Entity.Concrete
         public string Phone { get; set; }
         public string Email { get; set; }
         public int Stars { get; set; }
+        
+        //Aşağıdaki özellikleri çıkarttım. Hotel özellikleri olarak uygun gelmedi.
+        /*
         public DateTime CheckInTime { get; set; }
         public DateTime CheckOutTime { get; set; }
-        
+        */
+
         //Navigation Properties
         public ICollection<Staff> HotelStaff { get; set; }
         public ICollection<Room> Rooms { get; set; }

@@ -19,12 +19,17 @@ namespace HotelReservation.Business.Services
 
         public List<Hotel> GetAll()
         {
-            return _hotelRepo.GetAll();
+            return _hotelRepo.GetAll(x => x.IsDeleted == false);
         }
 
         public Hotel GetById(string id)
         {
             return _hotelRepo.Get(h => h.Id.ToString() == id);
+        }
+
+        public bool IfEntityExists(string HotelName)
+        {
+            return _hotelRepo.IfEntityExists(h => h.HotelName.ToString() == HotelName);
         }
 
         public void Insert(Hotel entity)

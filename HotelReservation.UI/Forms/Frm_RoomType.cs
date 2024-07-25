@@ -22,7 +22,7 @@ namespace HotelReservation.UI.Forms
         {
             InitializeComponent();
 
-            //Dependency Injection ile CategoryServide oluştur
+            //Dependency Injection ile CategoryService oluştur
             var dbContext = new ApplicationDBContext();
             var roomTypeRepo = new RoomTypeRepository(dbContext);
             _roomTypeService = new RoomTypeService(roomTypeRepo);

@@ -9,5 +9,6 @@ namespace HotelReservation.Business.Abstract
 {
     public interface IHotelService : IManager<Hotel>
     {
+        bool IfEntityExists(string HotelName);
     }
 }

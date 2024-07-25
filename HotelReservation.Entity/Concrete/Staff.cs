@@ -6,6 +6,10 @@ namespace HotelReservation.Entity.Concrete
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string FullName
+        {
+            get { return $"{FirstName} {LastName}"; }
+        }
         public string Position { get; set; }
         public decimal Salary { get; set; }
         public DateOnly DateOfBirth { get; set; }

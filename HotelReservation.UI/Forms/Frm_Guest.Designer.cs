@@ -140,9 +140,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(41, 238);
             label6.Name = "label6";
-            label6.Size = new Size(60, 20);
+            label6.Size = new Size(58, 20);
             label6.TabIndex = 1;
-            label6.Text = "E-posta";
+            label6.Text = "E-Posta";
             // 
             // label7
             // 

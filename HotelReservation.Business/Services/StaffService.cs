@@ -20,7 +20,7 @@ namespace HotelReservation.Business.Services
 
         public List<Staff> GetAll()
         {
-            return _staffRepository.GetAll();
+            return _staffRepository.GetAll(x => x.IsDeleted == false);
         }
 
         public Staff GetById(string id)

@@ -28,6 +28,11 @@ namespace HotelReservation.Business.Services
             return _roomRepo.Get(r => r.Id.ToString() == id);
         }
 
+        public bool IfEntityExists(int RoomNumber)
+        {
+            return _roomRepo.IfEntityExists(g => g.RoomNumber == RoomNumber);
+        }
+
         public void Insert(Room entity)
         {
             _roomRepo.Add(entity);

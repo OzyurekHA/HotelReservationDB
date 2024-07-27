@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelReservation.UI.Forms
 {
@@ -41,6 +42,32 @@ namespace HotelReservation.UI.Forms
         {
             GetAllHotels();
             GetAllRoomTypes();
+
+            GetAllRooms();
+        }
+
+        private void GetAllRooms()
+        {
+            using (var context = new ApplicationDBContext())
+            {
+                var rooms = from room in context.Rooms
+                            join hotel in context.Hotels on room.HotelId equals hotel.Id
+                            join roomType in context.RoomTypes on room.RoomTypeId equals roomType.Id
+                            select new
+                            {
+                                isReserved = room.IsReserved ? "Dolu" : "Boş",
+                                RoomNumber = room.RoomNumber,
+                                HotelName = hotel.HotelName,
+                                RoomTypeName = roomType.TypeName
+                            };
+
+                var roomList = rooms.ToList();
+
+                foreach (var room in roomList)
+                {
+                    lstRoom.Items.Add($"{room.isReserved} - {room.RoomNumber} - {room.HotelName} - {room.RoomTypeName}");
+                }
+            }
         }
 
         private void GetAllRoomTypes()
@@ -59,12 +86,21 @@ namespace HotelReservation.UI.Forms
             cmbHotel.ValueMember = "Id";
         }
 
+        int roomNumber;
         bool isReserved;
         private void btnCreate_Click(object sender, EventArgs e)
         {
             try
             {
                 //Formdan veriyi al
+                if (int.TryParse(txtRoomNumber.Text, out roomNumber))
+                {
+                    //parsing successful 
+                }
+                else
+                {
+                    throw new Exception("Sadece sayı girin");
+                }
                 Hotel hotel = (Hotel)cmbHotel.SelectedItem;
                 RoomType roomType = (RoomType)cmbRoomType.SelectedItem;
 
@@ -74,9 +110,16 @@ namespace HotelReservation.UI.Forms
                 }
                 isReserved = false;
 
+                //Aynısından yoksa
+                if (_roomService.IfEntityExists(roomNumber)) 
+                {
+                    throw new Exception("Bu oda zaten kayıtlı");
+                }
+
                 //Yeni oda oluştur
                 Room room = new Room()
                 {
+                    RoomNumber = roomNumber,
                     Hotel = hotel,
                     RoomType = roomType,
                     IsReserved = isReserved
@@ -85,6 +128,7 @@ namespace HotelReservation.UI.Forms
                 //Kaydet
                 _roomService.Insert(room);
                 MessageBox.Show("Kayıt Başarılı");
+                GetAllRooms();
             }
             catch (Exception ex)
             {

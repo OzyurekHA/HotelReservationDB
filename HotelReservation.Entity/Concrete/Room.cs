@@ -4,6 +4,7 @@ namespace HotelReservation.Entity.Concrete
 {
     public class Room : BaseEntity
     {
+        public int RoomNumber { get; set; }
         public bool IsReserved { get; set; }
         
         //Navigation Properties

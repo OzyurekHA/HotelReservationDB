@@ -36,12 +36,15 @@
             label4 = new Label();
             cmbRoomType = new ComboBox();
             btnCreate = new Button();
+            label5 = new Label();
+            txtRoomNumber = new TextBox();
+            lstRoom = new ListBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(39, 215);
+            label1.Location = new Point(39, 227);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(90, 30);
@@ -51,7 +54,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 163);
+            label2.Location = new Point(39, 181);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(164, 30);
@@ -61,7 +64,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(39, 113);
+            label3.Location = new Point(39, 135);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(95, 30);
@@ -71,7 +74,7 @@
             // cmbHotel
             // 
             cmbHotel.FormattingEnabled = true;
-            cmbHotel.Location = new Point(237, 160);
+            cmbHotel.Location = new Point(237, 178);
             cmbHotel.Margin = new Padding(4);
             cmbHotel.Name = "cmbHotel";
             cmbHotel.Size = new Size(224, 38);
@@ -81,7 +84,7 @@
             // 
             cmbIsReserved.FormattingEnabled = true;
             cmbIsReserved.Items.AddRange(new object[] { "Dolu", "Boş" });
-            cmbIsReserved.Location = new Point(237, 212);
+            cmbIsReserved.Location = new Point(237, 224);
             cmbIsReserved.Margin = new Padding(4);
             cmbIsReserved.Name = "cmbIsReserved";
             cmbIsReserved.Size = new Size(224, 38);
@@ -90,7 +93,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(39, 39);
+            label4.Location = new Point(39, 19);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(176, 30);
@@ -100,7 +103,7 @@
             // cmbRoomType
             // 
             cmbRoomType.FormattingEnabled = true;
-            cmbRoomType.Location = new Point(237, 110);
+            cmbRoomType.Location = new Point(237, 132);
             cmbRoomType.Margin = new Padding(4);
             cmbRoomType.Name = "cmbRoomType";
             cmbRoomType.Size = new Size(224, 38);
@@ -116,15 +119,44 @@
             btnCreate.UseVisualStyleBackColor = true;
             btnCreate.Click += btnCreate_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(39, 89);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(151, 30);
+            label5.TabIndex = 0;
+            label5.Text = "Oda Numarası";
+            // 
+            // txtRoomNumber
+            // 
+            txtRoomNumber.Location = new Point(237, 86);
+            txtRoomNumber.Name = "txtRoomNumber";
+            txtRoomNumber.Size = new Size(224, 36);
+            txtRoomNumber.TabIndex = 4;
+            // 
+            // lstRoom
+            // 
+            lstRoom.Font = new Font("Segoe UI", 9F);
+            lstRoom.FormattingEnabled = true;
+            lstRoom.Location = new Point(504, 89);
+            lstRoom.Name = "lstRoom";
+            lstRoom.Size = new Size(348, 204);
+            lstRoom.TabIndex = 5;
+            // 
             // Frm_Room
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(529, 371);
+            ClientSize = new Size(907, 371);
+            Controls.Add(lstRoom);
+            Controls.Add(txtRoomNumber);
             Controls.Add(btnCreate);
             Controls.Add(cmbIsReserved);
             Controls.Add(cmbRoomType);
             Controls.Add(cmbHotel);
+            Controls.Add(label5);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label4);
@@ -148,5 +180,8 @@
         private Label label4;
         private ComboBox cmbRoomType;
         private Button btnCreate;
+        private Label label5;
+        private TextBox txtRoomNumber;
+        private ListBox lstRoom;
     }
 }

@@ -43,6 +43,7 @@
             txtEmail = new TextBox();
             txtName = new TextBox();
             groupBox1 = new GroupBox();
+            listBox1 = new ListBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -185,11 +186,20 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(29, 393);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(305, 104);
+            listBox1.TabIndex = 22;
+            // 
             // Frm_OneGuest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 531);
+            Controls.Add(listBox1);
             Controls.Add(groupBox1);
             Controls.Add(label7);
             Name = "Frm_OneGuest";
@@ -217,5 +227,6 @@
         private TextBox txtEmail;
         private TextBox txtName;
         private GroupBox groupBox1;
+        private ListBox listBox1;
     }
 }

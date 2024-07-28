@@ -1,6 +1,8 @@
 ﻿using HotelReservation.Business.Services;
 using HotelReservation.DataAccess;
 using HotelReservation.DataAccess.Repositories;
+using HotelReservation.Entity.Concrete;
+using HotelReservation.UI.Forms.GuestForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,8 @@ namespace HotelReservation.UI.Forms
         private readonly RoomService _roomService;
         private readonly RoomTypeService _roomTypeService;
         private readonly HotelService _hotelService;
+
+        private Decimal _selectedRoomTypePrice;
 
         public Frm_Booking()
         {
@@ -43,8 +47,72 @@ namespace HotelReservation.UI.Forms
             _hotelService = new HotelService(hotelRepo);
         }
 
+
         private void btnReserve_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Değerleri al
+                DateTime CheckIn = dtpCheckIn.Value;
+                DateTime CheckOut = dtpCheckOut.Value;
+                Room room = cmbRoom.SelectedItem as Room;
+                
+                //Gün sayısı
+                int TotalDays = (CheckOut-CheckIn).Days;
+
+                //Gecelik fiyat
+                Decimal PricePerNight = _selectedRoomTypePrice;
+
+                //Toplam fiyat
+                Decimal TotalPrice = PricePerNight * TotalDays;
+
+                //Nud'deki kadar yeni rezervasyon oluştur
+                int guestCount = (int)nudGuest.Value;
+
+                for (int i = 0; i < guestCount; i++) 
+                {
+                    var booking = new Booking()
+                    {
+                        CheckInDate = CheckIn,
+                        CheckOutDate = CheckOut,
+                        Room = room,
+                        TotalPrice = TotalPrice
+                    };
+                }
+                    
+
+                switch (guestCount)
+                {
+                    case 1:
+                        
+                        Frm_OneGuest frm_OneGuest = new Frm_OneGuest();
+                        frm_OneGuest.Show();
+                        break;
+
+                    case 2:
+                        Frm_TwoGuest frm_TwoGuest = new Frm_TwoGuest();
+                        frm_TwoGuest.Show();
+                        break;
+
+                    case 3:
+                        Frm_ThreeGuest frm_ThreeGuest = new Frm_ThreeGuest();
+                        frm_ThreeGuest.Show();
+                        break;
+
+                    case 4:
+                        Frm_FourGuest frm_FourGuest = new Frm_FourGuest();
+                        frm_FourGuest.Show();
+                        break;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
 
         }
 
@@ -52,23 +120,25 @@ namespace HotelReservation.UI.Forms
         {
             GetAllHotels();
             GetAllRoomTypes();
-            GetAllRooms((Guid)cmbHotel.SelectedItem);
+            GetAllRooms();
         }
 
-        private void GetAllRooms(Guid hotelId)
+        private void GetAllRooms()
         {
-            var rooms = _roomService.GetRoomsByHotelId(hotelId).Select(r => new { r.RoomNumber, r.Id }).ToList();
+            //var rooms = _roomService.GetRoomsByHotelId(hotelId).Select(r => new { r.RoomNumber, r.Id }).ToList();
 
-            cmbRoom.DataSource = rooms;
+            cmbRoom.DataSource = _roomService.GetAll().ToList();
             cmbRoom.DisplayMember = "RoomNumber";
             cmbRoom.ValueMember = "Id";
 
-            
+
         }
 
         private void GetAllRoomTypes()
         {
-            _roomTypeService.GetAll();
+            cmbRoomType.DataSource = _roomTypeService.GetAll();
+            cmbRoomType.DisplayMember = "TypeName";
+            cmbRoomType.ValueMember = "Id";
         }
 
         private void GetAllHotels()
@@ -80,8 +150,22 @@ namespace HotelReservation.UI.Forms
 
         private void cmbHotel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Guid selectedHotelId = (Guid)cmbHotel.SelectedValue;
-            GetAllRooms(selectedHotelId);
+            if (cmbHotel.SelectedIndex != -1)
+            {
+
+                GetAllRooms();
+            }
+
+        }
+
+        Decimal Price;
+
+        private void cmbRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRoomType.SelectedItem is RoomType selectedRoomType)
+            {
+                _selectedRoomTypePrice = selectedRoomType.PricePerNight;
+            }
         }
     }
 }

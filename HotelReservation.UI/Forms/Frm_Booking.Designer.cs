@@ -45,12 +45,12 @@
             cmbRoom = new ComboBox();
             label5 = new Label();
             groupBox3 = new GroupBox();
-            numericUpDown1 = new NumericUpDown();
+            nudGuest = new NumericUpDown();
             label8 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudGuest).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -102,6 +102,7 @@
             cmbRoomType.Name = "cmbRoomType";
             cmbRoomType.Size = new Size(284, 28);
             cmbRoomType.TabIndex = 4;
+            cmbRoomType.SelectedIndexChanged += cmbRoomType_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -210,7 +211,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(numericUpDown1);
+            groupBox3.Controls.Add(nudGuest);
             groupBox3.Controls.Add(label8);
             groupBox3.Location = new Point(628, 83);
             groupBox3.Name = "groupBox3";
@@ -219,15 +220,15 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "groupBox3";
             // 
-            // numericUpDown1
+            // nudGuest
             // 
-            numericUpDown1.Location = new Point(14, 94);
-            numericUpDown1.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
-            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(266, 27);
-            numericUpDown1.TabIndex = 3;
-            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudGuest.Location = new Point(14, 94);
+            nudGuest.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            nudGuest.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudGuest.Name = "nudGuest";
+            nudGuest.Size = new Size(266, 27);
+            nudGuest.TabIndex = 3;
+            nudGuest.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label8
             // 
@@ -258,7 +259,7 @@
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudGuest).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,6 +284,6 @@
         private Label label8;
         private ComboBox cmbHotel;
         private Label label9;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown nudGuest;
     }
 }

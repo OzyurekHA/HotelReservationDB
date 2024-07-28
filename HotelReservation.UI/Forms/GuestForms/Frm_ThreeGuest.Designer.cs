@@ -70,6 +70,10 @@
             label16 = new Label();
             label17 = new Label();
             label18 = new Label();
+            label19 = new Label();
+            listBox1 = new ListBox();
+            button3 = new Button();
+            label20 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -90,7 +94,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(12, 83);
+            groupBox1.Location = new Point(12, 64);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(305, 308);
             groupBox1.TabIndex = 23;
@@ -218,7 +222,7 @@
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(label12);
-            groupBox2.Location = new Point(323, 83);
+            groupBox2.Location = new Point(323, 64);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(305, 308);
             groupBox2.TabIndex = 24;
@@ -346,7 +350,7 @@
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
             groupBox3.Controls.Add(label18);
-            groupBox3.Location = new Point(634, 83);
+            groupBox3.Location = new Point(634, 64);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(305, 308);
             groupBox3.TabIndex = 25;
@@ -459,11 +463,54 @@
             label18.TabIndex = 11;
             label18.Text = "Doğum Tarihi";
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label19.Location = new Point(12, 19);
+            label19.Name = "label19";
+            label19.Size = new Size(460, 31);
+            label19.TabIndex = 26;
+            label19.Text = "Lütfen rezervasyon bilgilerini doldurunuz";
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(12, 378);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(927, 104);
+            listBox1.TabIndex = 27;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            button3.Location = new Point(657, 499);
+            button3.Name = "button3";
+            button3.Size = new Size(266, 41);
+            button3.TabIndex = 28;
+            button3.Text = "Ödeme Bilgileri >>";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.BackColor = Color.PeachPuff;
+            label20.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            label20.Location = new Point(463, 504);
+            label20.Name = "label20";
+            label20.Size = new Size(161, 31);
+            label20.TabIndex = 29;
+            label20.Text = "Toplam Tutar:";
+            // 
             // Frm_ThreeGuest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1238, 450);
+            ClientSize = new Size(953, 564);
+            Controls.Add(label20);
+            Controls.Add(button3);
+            Controls.Add(listBox1);
+            Controls.Add(label19);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -476,6 +523,7 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -522,5 +570,9 @@
         private Label label16;
         private Label label17;
         private Label label18;
+        private Label label19;
+        private ListBox listBox1;
+        private Button button3;
+        private Label label20;
     }
 }

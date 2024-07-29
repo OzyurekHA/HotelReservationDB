@@ -45,9 +45,9 @@
             cmbRoom = new ComboBox();
             label5 = new Label();
             groupBox3 = new GroupBox();
-            btnReservation = new Button();
             nudGuest = new NumericUpDown();
             label8 = new Label();
+            btnReservation = new Button();
             groupBox4 = new GroupBox();
             lblTotalPrice = new Label();
             cmbPaymentDate = new ComboBox();
@@ -87,6 +87,7 @@
             label16 = new Label();
             label17 = new Label();
             label18 = new Label();
+            btnSaveGuests = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -117,7 +118,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(229, 73);
+            label3.Location = new Point(246, 73);
             label3.Name = "label3";
             label3.Size = new Size(117, 20);
             label3.TabIndex = 2;
@@ -125,16 +126,16 @@
             // 
             // dtpCheckOut
             // 
-            dtpCheckOut.Location = new Point(229, 96);
+            dtpCheckOut.Location = new Point(246, 96);
             dtpCheckOut.Name = "dtpCheckOut";
-            dtpCheckOut.Size = new Size(200, 27);
+            dtpCheckOut.Size = new Size(212, 27);
             dtpCheckOut.TabIndex = 3;
             // 
             // dtpCheckIn
             // 
             dtpCheckIn.Location = new Point(6, 96);
             dtpCheckIn.Name = "dtpCheckIn";
-            dtpCheckIn.Size = new Size(200, 27);
+            dtpCheckIn.Size = new Size(212, 27);
             dtpCheckIn.TabIndex = 3;
             // 
             // cmbRoomType
@@ -142,7 +143,7 @@
             cmbRoomType.FormattingEnabled = true;
             cmbRoomType.Location = new Point(6, 149);
             cmbRoomType.Name = "cmbRoomType";
-            cmbRoomType.Size = new Size(200, 28);
+            cmbRoomType.Size = new Size(212, 28);
             cmbRoomType.TabIndex = 4;
             cmbRoomType.SelectedIndexChanged += cmbRoomType_SelectedIndexChanged;
             // 
@@ -158,7 +159,7 @@
             // btnReserve
             // 
             btnReserve.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
-            btnReserve.Location = new Point(6, 136);
+            btnReserve.Location = new Point(23, 139);
             btnReserve.Name = "btnReserve";
             btnReserve.Size = new Size(286, 41);
             btnReserve.TabIndex = 6;
@@ -183,7 +184,7 @@
             cmbHotel.FormattingEnabled = true;
             cmbHotel.Location = new Point(6, 93);
             cmbHotel.Name = "cmbHotel";
-            cmbHotel.Size = new Size(286, 28);
+            cmbHotel.Size = new Size(306, 28);
             cmbHotel.TabIndex = 3;
             cmbHotel.SelectedIndexChanged += cmbHotel_SelectedIndexChanged;
             // 
@@ -219,7 +220,7 @@
             groupBox2.Controls.Add(label4);
             groupBox2.Location = new Point(336, 83);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(476, 193);
+            groupBox2.Size = new Size(487, 193);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "2";
@@ -237,16 +238,16 @@
             // cmbRoom
             // 
             cmbRoom.FormattingEnabled = true;
-            cmbRoom.Location = new Point(229, 149);
+            cmbRoom.Location = new Point(246, 149);
             cmbRoom.Name = "cmbRoom";
-            cmbRoom.Size = new Size(200, 28);
+            cmbRoom.Size = new Size(212, 28);
             cmbRoom.TabIndex = 4;
             cmbRoom.SelectedIndexChanged += cmbRoom_SelectedIndexChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(229, 126);
+            label5.Location = new Point(246, 126);
             label5.Name = "label5";
             label5.Size = new Size(100, 20);
             label5.TabIndex = 0;
@@ -257,27 +258,16 @@
             groupBox3.Controls.Add(nudGuest);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(btnReserve);
-            groupBox3.Location = new Point(818, 83);
+            groupBox3.Location = new Point(829, 83);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(298, 193);
+            groupBox3.Size = new Size(327, 193);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "3";
             // 
-            // btnReservation
-            // 
-            btnReservation.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
-            btnReservation.Location = new Point(818, 544);
-            btnReservation.Name = "btnReservation";
-            btnReservation.Size = new Size(298, 39);
-            btnReservation.TabIndex = 4;
-            btnReservation.Text = "Rezervasyonu Tamamla";
-            btnReservation.UseVisualStyleBackColor = true;
-            btnReservation.Click += btn_Click;
-            // 
             // nudGuest
             // 
-            nudGuest.Location = new Point(6, 73);
+            nudGuest.Location = new Point(23, 73);
             nudGuest.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             nudGuest.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudGuest.Name = "nudGuest";
@@ -295,17 +285,29 @@
             label8.TabIndex = 2;
             label8.Text = "Misafir Sayısı";
             // 
+            // btnReservation
+            // 
+            btnReservation.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            btnReservation.Location = new Point(0, 259);
+            btnReservation.Name = "btnReservation";
+            btnReservation.Size = new Size(352, 41);
+            btnReservation.TabIndex = 4;
+            btnReservation.Text = "<<Rezervasyonu Tamamla>>";
+            btnReservation.UseVisualStyleBackColor = true;
+            btnReservation.Click += btn_Click;
+            // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(btnReservation);
             groupBox4.Controls.Add(lblTotalPrice);
             groupBox4.Controls.Add(cmbPaymentDate);
             groupBox4.Controls.Add(cmbPaymentMethod);
             groupBox4.Controls.Add(label10);
             groupBox4.Controls.Add(label12);
             groupBox4.Controls.Add(label11);
-            groupBox4.Location = new Point(818, 285);
+            groupBox4.Location = new Point(804, 285);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(298, 242);
+            groupBox4.Size = new Size(352, 312);
             groupBox4.TabIndex = 10;
             groupBox4.TabStop = false;
             groupBox4.Text = "5";
@@ -326,7 +328,7 @@
             cmbPaymentDate.Items.AddRange(new object[] { "Şimdi Öde", "Check-in Tarihinde Öde" });
             cmbPaymentDate.Location = new Point(6, 140);
             cmbPaymentDate.Name = "cmbPaymentDate";
-            cmbPaymentDate.Size = new Size(286, 28);
+            cmbPaymentDate.Size = new Size(340, 28);
             cmbPaymentDate.TabIndex = 3;
             // 
             // cmbPaymentMethod
@@ -335,7 +337,7 @@
             cmbPaymentMethod.Items.AddRange(new object[] { "Kart", "Google Pay", "PayPal" });
             cmbPaymentMethod.Location = new Point(6, 194);
             cmbPaymentMethod.Name = "cmbPaymentMethod";
-            cmbPaymentMethod.Size = new Size(286, 28);
+            cmbPaymentMethod.Size = new Size(340, 28);
             cmbPaymentMethod.TabIndex = 3;
             // 
             // label10
@@ -368,6 +370,7 @@
             // 
             // grpGuestInput
             // 
+            grpGuestInput.Controls.Add(btnSaveGuests);
             grpGuestInput.Controls.Add(label19);
             grpGuestInput.Controls.Add(txtName4);
             grpGuestInput.Controls.Add(txtEmail4);
@@ -401,7 +404,7 @@
             grpGuestInput.Controls.Add(label18);
             grpGuestInput.Location = new Point(12, 285);
             grpGuestInput.Name = "grpGuestInput";
-            grpGuestInput.Size = new Size(800, 242);
+            grpGuestInput.Size = new Size(786, 312);
             grpGuestInput.TabIndex = 11;
             grpGuestInput.TabStop = false;
             grpGuestInput.Text = "4";
@@ -642,12 +645,22 @@
             label18.TabIndex = 24;
             label18.Text = "Doğum Tarihi";
             // 
+            // btnSaveGuests
+            // 
+            btnSaveGuests.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            btnSaveGuests.Location = new Point(494, 259);
+            btnSaveGuests.Name = "btnSaveGuests";
+            btnSaveGuests.Size = new Size(286, 41);
+            btnSaveGuests.TabIndex = 51;
+            btnSaveGuests.Text = "Misafirleri Kaydet >>";
+            btnSaveGuests.UseVisualStyleBackColor = true;
+            btnSaveGuests.Click += btnSaveGuests_Click;
+            // 
             // Frm_Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1128, 633);
-            Controls.Add(btnReservation);
+            ClientSize = new Size(1168, 606);
             Controls.Add(grpGuestInput);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
@@ -733,5 +746,6 @@
         private TextBox txtPhone2;
         private Button btnReservation;
         private Label lblTotalPrice;
+        private Button btnSaveGuests;
     }
 }

@@ -3,6 +3,7 @@ using HotelReservation.DataAccess;
 using HotelReservation.DataAccess.Repositories;
 using HotelReservation.Entity.Concrete;
 using HotelReservation.UI.Forms.GuestForms;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,9 +23,10 @@ namespace HotelReservation.UI.Forms
         private readonly RoomService _roomService;
         private readonly RoomTypeService _roomTypeService;
         private readonly HotelService _hotelService;
-        
+        private readonly BookingGuestsService _bookingGuestsService;
+
         private Booking _currentBooking;
-        
+
         private int _countGuest;
 
         private Decimal _selectedRoomTypePrice;
@@ -49,6 +51,9 @@ namespace HotelReservation.UI.Forms
 
             var hotelRepo = new HotelRepository(dbContext);
             _hotelService = new HotelService(hotelRepo);
+
+            var bookingGuestRepo = new BookingGuestsRepository(dbContext);
+            _bookingGuestsService = new BookingGuestsService(bookingGuestRepo);
         }
 
 
@@ -99,7 +104,7 @@ namespace HotelReservation.UI.Forms
                     };
                 }
 
-                
+
 
 
             }
@@ -134,7 +139,7 @@ namespace HotelReservation.UI.Forms
 
             for (int i = 0; i < guestCount; i++)
             {
-                
+
                 var firstNameTextBox = new TextBox { Name = $"txtFirstName{i + 1}", Top = i * 33 + 93, Left = 6 };
                 var lastNameTextBox = new TextBox { Name = $"txtLastName{i + 1}", Top = i * 33 + 93, Left = 136 };
                 var birthDateDtp = new TextBox { Name = $"dtpBirthDate{i + 1}", Top = i * 33 + 93, Left = 266 };
@@ -218,6 +223,48 @@ namespace HotelReservation.UI.Forms
 
         private void btn_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSaveGuests_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < _countGuest; i++)
+            {
+                //Her bir Guest için gelen bilgileri al
+
+                string firstName = grpGuestInput.Controls[$"txtFirstName{i + 1}"].Text;
+                string lastName = grpGuestInput.Controls[$"txtLastName{i + 1}"].Text;
+                var birthDate = ((DateTimePicker)grpGuestInput.Controls[$"dtpBirthDate{i + 1}"]).Value;
+                string address = grpGuestInput.Controls[$"txtAddress{i + 1}"].Text;
+                string phone = grpGuestInput.Controls[$"txtPhone{i + 1}"].Text;
+                string email = grpGuestInput.Controls[$"txtEmail{i + 1}"].Text;
+
+                //Her bir Guest için yeni Guest aç
+
+                Guest guest = new Guest()
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    DateOfBirth = DateOnly.FromDateTime(birthDate),
+                    Address = address,
+                    Phone = phone,
+                    Email = email
+                };
+
+                //Her bir Guest'i veritabanına kaydet
+
+                _guestService.Insert(guest);
+
+                //BookingGuests ilişki tablosuna kayıt ekle
+
+                BookingGuests bookingGuest = new BookingGuests()
+                {
+                    BookingId = _currentBooking.Id,
+                    GuestId = guest.Id
+                };
+
+                _bookingGuestsService.Insert(bookingGuest);
+            }
 
         }
     }

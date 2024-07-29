@@ -24,6 +24,7 @@ namespace HotelReservation.UI.Forms
         private readonly RoomTypeService _roomTypeService;
         private readonly HotelService _hotelService;
         private readonly BookingGuestsService _bookingGuestsService;
+        private readonly PaymentService _paymentService;
 
         private Booking _currentBooking;
 
@@ -54,6 +55,9 @@ namespace HotelReservation.UI.Forms
 
             var bookingGuestRepo = new BookingGuestsRepository(dbContext);
             _bookingGuestsService = new BookingGuestsService(bookingGuestRepo);
+
+            var paymentRepo = new PaymentRepository(dbContext);
+            _paymentService = new PaymentService(paymentRepo);
         }
 
 
@@ -223,7 +227,34 @@ namespace HotelReservation.UI.Forms
 
         private void btn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Değerleri ayrı ayrı yerlerden alacağız bu sefer
 
+                Decimal amount = _currentBooking.TotalPrice * _countGuest;
+
+                DateTime paymentDate = DateTime.Now;
+                if (cmbPaymentDate.SelectedIndex == 0)
+                {
+                    paymentDate = _currentBooking.CheckInDate;
+                }
+
+                string paymentMethod = cmbPaymentMethod.Text;
+
+                //Payment nesnesini oluştur
+                Payment payment = new Payment
+                {
+                    Amount = amount,
+                    PaymentMethod = paymentMethod,
+                    PaymentDate = paymentDate,
+                    BookingId = _currentBooking.Id,
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSaveGuests_Click(object sender, EventArgs e)

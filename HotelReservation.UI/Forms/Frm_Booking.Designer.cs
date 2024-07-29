@@ -56,44 +56,13 @@
             label12 = new Label();
             label11 = new Label();
             grpGuestInput = new GroupBox();
-            label19 = new Label();
-            txtName4 = new TextBox();
-            txtEmail4 = new TextBox();
-            dtpBirthDate4 = new DateTimePicker();
-            txtSurname4 = new TextBox();
-            txtAddress4 = new TextBox();
-            txtPhone4 = new TextBox();
-            txtName3 = new TextBox();
-            txtEmail3 = new TextBox();
-            dtpBirthDate3 = new DateTimePicker();
-            txtSurname3 = new TextBox();
-            txtAddress3 = new TextBox();
-            txtPhone3 = new TextBox();
-            txtName2 = new TextBox();
-            txtEmail2 = new TextBox();
-            dtpBirthDate2 = new DateTimePicker();
-            txtSurname2 = new TextBox();
-            txtAddress2 = new TextBox();
-            txtPhone2 = new TextBox();
-            label13 = new Label();
-            txtName1 = new TextBox();
-            txtEmail = new TextBox();
-            dtpBirthDate = new DateTimePicker();
-            txtSurname = new TextBox();
-            label14 = new Label();
-            txtAddress = new TextBox();
-            label15 = new Label();
-            txtPhone = new TextBox();
-            label16 = new Label();
-            label17 = new Label();
-            label18 = new Label();
             btnSaveGuests = new Button();
+            label19 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudGuest).BeginInit();
             groupBox4.SuspendLayout();
-            grpGuestInput.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -288,7 +257,7 @@
             // btnReservation
             // 
             btnReservation.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
-            btnReservation.Location = new Point(0, 259);
+            btnReservation.Location = new Point(804, 538);
             btnReservation.Name = "btnReservation";
             btnReservation.Size = new Size(352, 41);
             btnReservation.TabIndex = 4;
@@ -298,7 +267,6 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(btnReservation);
             groupBox4.Controls.Add(lblTotalPrice);
             groupBox4.Controls.Add(cmbPaymentDate);
             groupBox4.Controls.Add(cmbPaymentMethod);
@@ -307,7 +275,7 @@
             groupBox4.Controls.Add(label11);
             groupBox4.Location = new Point(804, 285);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(352, 312);
+            groupBox4.Size = new Size(352, 247);
             groupBox4.TabIndex = 10;
             groupBox4.TabStop = false;
             groupBox4.Text = "5";
@@ -370,285 +338,17 @@
             // 
             // grpGuestInput
             // 
-            grpGuestInput.Controls.Add(btnSaveGuests);
-            grpGuestInput.Controls.Add(label19);
-            grpGuestInput.Controls.Add(txtName4);
-            grpGuestInput.Controls.Add(txtEmail4);
-            grpGuestInput.Controls.Add(dtpBirthDate4);
-            grpGuestInput.Controls.Add(txtSurname4);
-            grpGuestInput.Controls.Add(txtAddress4);
-            grpGuestInput.Controls.Add(txtPhone4);
-            grpGuestInput.Controls.Add(txtName3);
-            grpGuestInput.Controls.Add(txtEmail3);
-            grpGuestInput.Controls.Add(dtpBirthDate3);
-            grpGuestInput.Controls.Add(txtSurname3);
-            grpGuestInput.Controls.Add(txtAddress3);
-            grpGuestInput.Controls.Add(txtPhone3);
-            grpGuestInput.Controls.Add(txtName2);
-            grpGuestInput.Controls.Add(txtEmail2);
-            grpGuestInput.Controls.Add(dtpBirthDate2);
-            grpGuestInput.Controls.Add(txtSurname2);
-            grpGuestInput.Controls.Add(txtAddress2);
-            grpGuestInput.Controls.Add(txtPhone2);
-            grpGuestInput.Controls.Add(label13);
-            grpGuestInput.Controls.Add(txtName1);
-            grpGuestInput.Controls.Add(txtEmail);
-            grpGuestInput.Controls.Add(dtpBirthDate);
-            grpGuestInput.Controls.Add(txtSurname);
-            grpGuestInput.Controls.Add(label14);
-            grpGuestInput.Controls.Add(txtAddress);
-            grpGuestInput.Controls.Add(label15);
-            grpGuestInput.Controls.Add(txtPhone);
-            grpGuestInput.Controls.Add(label16);
-            grpGuestInput.Controls.Add(label17);
-            grpGuestInput.Controls.Add(label18);
-            grpGuestInput.Location = new Point(12, 285);
+            grpGuestInput.Location = new Point(12, 355);
             grpGuestInput.Name = "grpGuestInput";
-            grpGuestInput.Size = new Size(786, 312);
+            grpGuestInput.Size = new Size(786, 177);
             grpGuestInput.TabIndex = 11;
             grpGuestInput.TabStop = false;
             grpGuestInput.Text = "4";
             // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
-            label19.Location = new Point(6, 23);
-            label19.Name = "label19";
-            label19.Size = new Size(176, 31);
-            label19.TabIndex = 50;
-            label19.Text = "Misafir Bilgileri";
-            // 
-            // txtName4
-            // 
-            txtName4.Location = new Point(6, 192);
-            txtName4.Name = "txtName4";
-            txtName4.Size = new Size(124, 27);
-            txtName4.TabIndex = 44;
-            // 
-            // txtEmail4
-            // 
-            txtEmail4.Location = new Point(656, 192);
-            txtEmail4.Name = "txtEmail4";
-            txtEmail4.Size = new Size(124, 27);
-            txtEmail4.TabIndex = 49;
-            // 
-            // dtpBirthDate4
-            // 
-            dtpBirthDate4.Format = DateTimePickerFormat.Short;
-            dtpBirthDate4.Location = new Point(266, 192);
-            dtpBirthDate4.Name = "dtpBirthDate4";
-            dtpBirthDate4.Size = new Size(124, 27);
-            dtpBirthDate4.TabIndex = 46;
-            // 
-            // txtSurname4
-            // 
-            txtSurname4.Location = new Point(136, 192);
-            txtSurname4.Name = "txtSurname4";
-            txtSurname4.Size = new Size(124, 27);
-            txtSurname4.TabIndex = 45;
-            // 
-            // txtAddress4
-            // 
-            txtAddress4.Location = new Point(396, 192);
-            txtAddress4.Name = "txtAddress4";
-            txtAddress4.Size = new Size(124, 27);
-            txtAddress4.TabIndex = 47;
-            // 
-            // txtPhone4
-            // 
-            txtPhone4.Location = new Point(526, 192);
-            txtPhone4.Name = "txtPhone4";
-            txtPhone4.Size = new Size(124, 27);
-            txtPhone4.TabIndex = 48;
-            // 
-            // txtName3
-            // 
-            txtName3.Location = new Point(6, 159);
-            txtName3.Name = "txtName3";
-            txtName3.Size = new Size(124, 27);
-            txtName3.TabIndex = 38;
-            // 
-            // txtEmail3
-            // 
-            txtEmail3.Location = new Point(656, 159);
-            txtEmail3.Name = "txtEmail3";
-            txtEmail3.Size = new Size(124, 27);
-            txtEmail3.TabIndex = 43;
-            // 
-            // dtpBirthDate3
-            // 
-            dtpBirthDate3.Format = DateTimePickerFormat.Short;
-            dtpBirthDate3.Location = new Point(266, 159);
-            dtpBirthDate3.Name = "dtpBirthDate3";
-            dtpBirthDate3.Size = new Size(124, 27);
-            dtpBirthDate3.TabIndex = 40;
-            // 
-            // txtSurname3
-            // 
-            txtSurname3.Location = new Point(136, 159);
-            txtSurname3.Name = "txtSurname3";
-            txtSurname3.Size = new Size(124, 27);
-            txtSurname3.TabIndex = 39;
-            // 
-            // txtAddress3
-            // 
-            txtAddress3.Location = new Point(396, 159);
-            txtAddress3.Name = "txtAddress3";
-            txtAddress3.Size = new Size(124, 27);
-            txtAddress3.TabIndex = 41;
-            // 
-            // txtPhone3
-            // 
-            txtPhone3.Location = new Point(526, 159);
-            txtPhone3.Name = "txtPhone3";
-            txtPhone3.Size = new Size(124, 27);
-            txtPhone3.TabIndex = 42;
-            // 
-            // txtName2
-            // 
-            txtName2.Location = new Point(6, 126);
-            txtName2.Name = "txtName2";
-            txtName2.Size = new Size(124, 27);
-            txtName2.TabIndex = 32;
-            // 
-            // txtEmail2
-            // 
-            txtEmail2.Location = new Point(656, 126);
-            txtEmail2.Name = "txtEmail2";
-            txtEmail2.Size = new Size(124, 27);
-            txtEmail2.TabIndex = 37;
-            // 
-            // dtpBirthDate2
-            // 
-            dtpBirthDate2.Format = DateTimePickerFormat.Short;
-            dtpBirthDate2.Location = new Point(266, 126);
-            dtpBirthDate2.Name = "dtpBirthDate2";
-            dtpBirthDate2.Size = new Size(124, 27);
-            dtpBirthDate2.TabIndex = 34;
-            // 
-            // txtSurname2
-            // 
-            txtSurname2.Location = new Point(136, 126);
-            txtSurname2.Name = "txtSurname2";
-            txtSurname2.Size = new Size(124, 27);
-            txtSurname2.TabIndex = 33;
-            // 
-            // txtAddress2
-            // 
-            txtAddress2.Location = new Point(396, 126);
-            txtAddress2.Name = "txtAddress2";
-            txtAddress2.Size = new Size(124, 27);
-            txtAddress2.TabIndex = 35;
-            // 
-            // txtPhone2
-            // 
-            txtPhone2.Location = new Point(526, 126);
-            txtPhone2.Name = "txtPhone2";
-            txtPhone2.Size = new Size(124, 27);
-            txtPhone2.TabIndex = 36;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(6, 70);
-            label13.Name = "label13";
-            label13.Size = new Size(28, 20);
-            label13.TabIndex = 26;
-            label13.Text = "Ad";
-            // 
-            // txtName1
-            // 
-            txtName1.Location = new Point(6, 93);
-            txtName1.Name = "txtName1";
-            txtName1.Size = new Size(124, 27);
-            txtName1.TabIndex = 20;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(656, 93);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(124, 27);
-            txtEmail.TabIndex = 31;
-            // 
-            // dtpBirthDate
-            // 
-            dtpBirthDate.Format = DateTimePickerFormat.Short;
-            dtpBirthDate.Location = new Point(266, 93);
-            dtpBirthDate.Name = "dtpBirthDate";
-            dtpBirthDate.Size = new Size(124, 27);
-            dtpBirthDate.TabIndex = 28;
-            // 
-            // txtSurname
-            // 
-            txtSurname.Location = new Point(136, 93);
-            txtSurname.Name = "txtSurname";
-            txtSurname.Size = new Size(124, 27);
-            txtSurname.TabIndex = 27;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(656, 70);
-            label14.Name = "label14";
-            label14.Size = new Size(58, 20);
-            label14.TabIndex = 21;
-            label14.Text = "E-Posta";
-            // 
-            // txtAddress
-            // 
-            txtAddress.Location = new Point(396, 93);
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(124, 27);
-            txtAddress.TabIndex = 29;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(526, 70);
-            label15.Name = "label15";
-            label15.Size = new Size(58, 20);
-            label15.TabIndex = 22;
-            label15.Text = "Telefon";
-            // 
-            // txtPhone
-            // 
-            txtPhone.Location = new Point(526, 93);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(124, 27);
-            txtPhone.TabIndex = 30;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(396, 70);
-            label16.Name = "label16";
-            label16.Size = new Size(47, 20);
-            label16.TabIndex = 23;
-            label16.Text = "Adres";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(136, 70);
-            label17.Name = "label17";
-            label17.Size = new Size(50, 20);
-            label17.TabIndex = 25;
-            label17.Text = "Soyad";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(266, 70);
-            label18.Name = "label18";
-            label18.Size = new Size(98, 20);
-            label18.TabIndex = 24;
-            label18.Text = "Doğum Tarihi";
-            // 
             // btnSaveGuests
             // 
             btnSaveGuests.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
-            btnSaveGuests.Location = new Point(494, 259);
+            btnSaveGuests.Location = new Point(508, 538);
             btnSaveGuests.Name = "btnSaveGuests";
             btnSaveGuests.Size = new Size(286, 41);
             btnSaveGuests.TabIndex = 51;
@@ -656,11 +356,25 @@
             btnSaveGuests.UseVisualStyleBackColor = true;
             btnSaveGuests.Click += btnSaveGuests_Click;
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            label19.Location = new Point(18, 308);
+            label19.Name = "label19";
+            label19.Size = new Size(176, 31);
+            label19.TabIndex = 52;
+            label19.Text = "Misafir Bilgileri";
+            // 
             // Frm_Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1168, 606);
+            Controls.Add(label19);
+            Controls.Add(btnReservation);
+            Controls.Add(btnSaveGuests);
             Controls.Add(grpGuestInput);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
@@ -679,8 +393,6 @@
             ((System.ComponentModel.ISupportInitialize)nudGuest).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
-            grpGuestInput.ResumeLayout(false);
-            grpGuestInput.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -713,39 +425,9 @@
         private Label label12;
         private ComboBox cmbPaymentDate;
         private GroupBox grpGuestInput;
-        private Label label13;
-        private TextBox txtName1;
-        private TextBox txtEmail;
-        private DateTimePicker dtpBirthDate;
-        private TextBox txtSurname;
-        private Label label14;
-        private TextBox txtAddress;
-        private Label label15;
-        private TextBox txtPhone;
-        private Label label16;
-        private Label label17;
-        private Label label18;
-        private Label label19;
-        private TextBox txtName4;
-        private TextBox txtEmail4;
-        private DateTimePicker dtpBirthDate4;
-        private TextBox txtSurname4;
-        private TextBox txtAddress4;
-        private TextBox txtPhone4;
-        private TextBox txtName3;
-        private TextBox txtEmail3;
-        private DateTimePicker dtpBirthDate3;
-        private TextBox txtSurname3;
-        private TextBox txtAddress3;
-        private TextBox txtPhone3;
-        private TextBox txtName2;
-        private TextBox txtEmail2;
-        private DateTimePicker dtpBirthDate2;
-        private TextBox txtSurname2;
-        private TextBox txtAddress2;
-        private TextBox txtPhone2;
         private Button btnReservation;
         private Label lblTotalPrice;
         private Button btnSaveGuests;
+        private Label label19;
     }
 }

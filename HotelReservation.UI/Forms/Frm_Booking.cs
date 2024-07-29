@@ -27,6 +27,7 @@ namespace HotelReservation.UI.Forms
         private readonly PaymentService _paymentService;
 
         private Booking _currentBooking;
+        private List<Guid> _selectedBookingIds = new List<Guid>();
 
         private int _countGuest;
 
@@ -89,28 +90,12 @@ namespace HotelReservation.UI.Forms
                 };
 
                 //Booking nesnesini geçici olarak sakla
-                _bookingService.Insert(_currentBooking);
+                /*_bookingService.Insert(_currentBooking);
+                _selectedBookingIds.Add(_currentBooking.Id);*/
 
                 //Nud'deki kadar yeni Guest ve BookingGuest oluştur
                 _countGuest = (int)nudGuest.Value;
                 CreateGuestInputFileds(_countGuest);
-                CreateBookingGuests(_countGuest);
-
-
-                for (int i = 0; i < _countGuest; i++)
-                {
-                    var booking = new Booking()
-                    {
-                        CheckInDate = CheckIn,
-                        CheckOutDate = CheckOut,
-                        Room = room,
-                        TotalPrice = TotalPrice
-                    };
-                }
-
-
-
-
             }
             catch (Exception ex)
             {
@@ -121,35 +106,32 @@ namespace HotelReservation.UI.Forms
 
         }
 
-        private void CreateBookingGuests(int guestCount)
-        {
-            throw new NotImplementedException();
-        }
-
         //Misafir GroupBox'unu burda oluşturuyoruz.
         private void CreateGuestInputFileds(int guestCount)
         {
             grpGuestInput.Controls.Clear();
 
             //Labelları burada ekleyeceğiz. Bir kere eklenecek zaten
-            var lblFirstName = new Label { Text = "Ad", Top = 70, Left = 6 };
-            var lblLastName = new Label { Text = "Soyad", Top = 70, Left = 136 };
-            var lblBirthDate = new Label { Text = "Doğum Tarihi", Top = 70, Left = 266 };
-            var lblAddress = new Label { Text = "Adres", Top = 70, Left = 396 };
-            var lblPhone = new Label { Text = "Telefon", Top = 70, Left = 526 };
-            var lblEmail = new Label { Text = "E-Posta", Top = 70, Left = 656 };
+            var lblFirstName = new Label { Text = "Ad", Top = 23, Left = 6 };
+            var lblLastName = new Label { Text = "Soyad", Top = 23, Left = 136 };
+            var lblBirthDate = new Label { Text = "Doğum Tarihi", Top = 23, Left = 266 };
+            var lblAddress = new Label { Text = "Adres", Top = 23, Left = 396 };
+            var lblPhone = new Label { Text = "Telefon", Top = 23, Left = 526 };
+            var lblEmail = new Label { Text = "E-Posta", Top = 23, Left = 656 };
+
+            //var lblMisafirBilgileri = new Label { Text = "Misafir Bilgileri", Top = 23, Left = 6, Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point) }; 
 
             //Müşteri sayısı kadar textboxu burada ekleyeceğiz.
 
             for (int i = 0; i < guestCount; i++)
             {
 
-                var firstNameTextBox = new TextBox { Name = $"txtFirstName{i + 1}", Top = i * 33 + 93, Left = 6 };
-                var lastNameTextBox = new TextBox { Name = $"txtLastName{i + 1}", Top = i * 33 + 93, Left = 136 };
-                var birthDateDtp = new TextBox { Name = $"dtpBirthDate{i + 1}", Top = i * 33 + 93, Left = 266 };
-                var AddressTextBox = new TextBox { Name = $"txtAddress{i + 1}", Top = i * 33 + 93, Left = 396 };
-                var PhoneTextBox = new TextBox { Name = $"txtPhone{i + 1}", Top = i * 33 + 93, Left = 526 };
-                var EmailTextBox = new TextBox { Name = $"txtEmail{i + 1}", Top = i * 33 + 93, Left = 656 };
+                var firstNameTextBox = new TextBox { Name = $"txtFirstName{i + 1}", Top = i * 33 + 46, Left = 6, Width = 120};
+                var lastNameTextBox = new TextBox { Name = $"txtLastName{i + 1}", Top = i * 33 + 46, Left = 136, Width = 120 };
+                var birthDateDtp = new DateTimePicker { Name = $"dtpBirthDate{i + 1}", Top = i * 33 + 46, Left = 266, Width = 120 };
+                var AddressTextBox = new TextBox { Name = $"txtAddress{i + 1}", Top = i * 33 + 46, Left = 396, Width = 120 };
+                var PhoneTextBox = new TextBox { Name = $"txtPhone{i + 1}", Top = i * 33 + 46, Left = 526, Width = 120 };
+                var EmailTextBox = new TextBox { Name = $"txtEmail{i + 1}", Top = i * 33 + 46, Left = 656, Width = 120 };
 
                 grpGuestInput.Controls.Add(firstNameTextBox);
                 grpGuestInput.Controls.Add(lastNameTextBox);
@@ -166,10 +148,15 @@ namespace HotelReservation.UI.Forms
             grpGuestInput.Controls.Add(lblPhone);
             grpGuestInput.Controls.Add(lblEmail);
 
+            //grpGuestInput.Controls.Add(lblMisafirBilgileri);
+
         }
 
         private void Frm_Booking_Load(object sender, EventArgs e)
         {
+            cmbPaymentDate.SelectedIndex = 0;
+            cmbPaymentMethod.SelectedIndex = 0;
+
             GetAllHotels();
             GetAllRoomTypes();
             GetAllRooms();
@@ -210,8 +197,6 @@ namespace HotelReservation.UI.Forms
 
         }
 
-        Decimal Price;
-
         private void cmbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbRoomType.SelectedItem is RoomType selectedRoomType)
@@ -231,10 +216,9 @@ namespace HotelReservation.UI.Forms
             {
                 //Değerleri ayrı ayrı yerlerden alacağız bu sefer
 
-                Decimal amount = _currentBooking.TotalPrice * _countGuest;
 
                 DateTime paymentDate = DateTime.Now;
-                if (cmbPaymentDate.SelectedIndex == 0)
+                if (cmbPaymentDate.SelectedIndex == 1)
                 {
                     paymentDate = _currentBooking.CheckInDate;
                 }
@@ -244,11 +228,12 @@ namespace HotelReservation.UI.Forms
                 //Payment nesnesini oluştur
                 Payment payment = new Payment
                 {
-                    Amount = amount,
                     PaymentMethod = paymentMethod,
                     PaymentDate = paymentDate,
-                    BookingId = _currentBooking.Id,
-                }
+                };
+
+                _paymentService.Insert(payment);
+                _bookingService.Insert(_currentBooking);
             }
             catch (Exception ex)
             {
@@ -287,15 +272,20 @@ namespace HotelReservation.UI.Forms
                 _guestService.Insert(guest);
 
                 //BookingGuests ilişki tablosuna kayıt ekle
-
+                /*
                 BookingGuests bookingGuest = new BookingGuests()
                 {
-                    BookingId = _currentBooking.Id,
-                    GuestId = guest.Id
+                    Booking = _currentBooking,
+                    Guest = guest
                 };
 
                 _bookingGuestsService.Insert(bookingGuest);
+                */
             }
+
+            //Booking'den gelen TotalPrice ile Misafir sayısını çarpıp ücret olarak yazdıracağız.
+            Decimal amount = _currentBooking.TotalPrice * _countGuest;
+            lblTotalPrice.Text = $"Toplam Tutar: {amount}";
 
         }
     }

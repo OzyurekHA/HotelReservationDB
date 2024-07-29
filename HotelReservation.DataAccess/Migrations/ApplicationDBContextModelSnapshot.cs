@@ -40,9 +40,6 @@ namespace HotelReservation.DataAccess.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("PaymentId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("RoomId")
                         .HasColumnType("uniqueidentifier");
 
@@ -54,8 +51,6 @@ namespace HotelReservation.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PaymentId");
 
                     b.HasIndex("RoomId");
 
@@ -178,6 +173,9 @@ namespace HotelReservation.DataAccess.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<Guid>("BookingId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -195,6 +193,8 @@ namespace HotelReservation.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
 
                     b.ToTable("Payments");
                 });
@@ -327,19 +327,11 @@ namespace HotelReservation.DataAccess.Migrations
 
             modelBuilder.Entity("HotelReservation.Entity.Concrete.Booking", b =>
                 {
-                    b.HasOne("HotelReservation.Entity.Concrete.Payment", "Payment")
-                        .WithMany("Bookings")
-                        .HasForeignKey("PaymentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("HotelReservation.Entity.Concrete.Room", "Room")
                         .WithMany("Bookings")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Payment");
 
                     b.Navigation("Room");
                 });
@@ -361,6 +353,17 @@ namespace HotelReservation.DataAccess.Migrations
                     b.Navigation("Booking");
 
                     b.Navigation("Guest");
+                });
+
+            modelBuilder.Entity("HotelReservation.Entity.Concrete.Payment", b =>
+                {
+                    b.HasOne("HotelReservation.Entity.Concrete.Booking", "Booking")
+                        .WithMany("Payment")
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
                 });
 
             modelBuilder.Entity("HotelReservation.Entity.Concrete.Room", b =>
@@ -396,6 +399,8 @@ namespace HotelReservation.DataAccess.Migrations
             modelBuilder.Entity("HotelReservation.Entity.Concrete.Booking", b =>
                 {
                     b.Navigation("BookingGuests");
+
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("HotelReservation.Entity.Concrete.Guest", b =>
@@ -408,11 +413,6 @@ namespace HotelReservation.DataAccess.Migrations
                     b.Navigation("HotelStaff");
 
                     b.Navigation("Rooms");
-                });
-
-            modelBuilder.Entity("HotelReservation.Entity.Concrete.Payment", b =>
-                {
-                    b.Navigation("Bookings");
                 });
 
             modelBuilder.Entity("HotelReservation.Entity.Concrete.Room", b =>

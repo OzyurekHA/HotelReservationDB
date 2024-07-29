@@ -9,6 +9,6 @@ namespace HotelReservation.Entity.Concrete
         public string PaymentMethod { get; set; }
 
         //Navigation Properties
-        public ICollection<Booking> Bookings { get; set; }
+        public Booking Booking { get; set; }
     }
 }

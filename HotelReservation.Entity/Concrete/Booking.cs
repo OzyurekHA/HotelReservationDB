@@ -12,8 +12,9 @@ namespace HotelReservation.Entity.Concrete
         public Room Room { get; set; }
 
         public ICollection<BookingGuests> BookingGuests { get; set; }
-        
-        public Guid PaymentId { get; set; }
-        public Payment Payment { get; set; }
+
+
+        //Bu ilişkiyi ters çevir
+        public ICollection<Payment> Payment { get; set; }
     }
 }
